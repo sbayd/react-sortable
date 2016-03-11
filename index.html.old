@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>React-sortable by cheton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">React-sortable</h1>
+      <h2 class="project-tagline">A higher order React component for Sortable (https://github.com/RubaXa/Sortable).</h2>
+      <a href="https://github.com/cheton/react-sortable" class="btn">View on GitHub</a>
+      <a href="https://github.com/cheton/react-sortable/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/cheton/react-sortable/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="react-sortable--" class="anchor" href="#react-sortable--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>react-sortable <a href="https://travis-ci.org/cheton/react-sortable"><img src="https://travis-ci.org/cheton/react-sortable.svg?branch=master" alt="build status"></a> <a href="https://coveralls.io/r/cheton/react-sortable"><img src="https://coveralls.io/repos/cheton/react-sortable/badge.svg" alt="Coverage Status"></a>
+</h1>
+
+<p><a href="https://nodei.co/npm/react-sortablejs/"><img src="https://nodei.co/npm/react-sortablejs.png?downloads=true&amp;stars=true" alt="NPM"></a></p>
+
+<p>A higher order React component for <a href="https://github.com/RubaXa/Sortable">Sortable</a>.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The easiest way to use react-sortablejs is to install it from npm and include it in your React build process using webpack or browserify.</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install --save react-sortablejs</pre></div>
+
+<p>You can create a standalone module using webpack:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install
+$ webpack</pre></div>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h2>
+
+<h4>
+<a id="ref-option" class="anchor" href="#ref-option" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>ref</code> option</h4>
+
+<p>Specify which items inside the <code>ref</code> attribute should be sortable.</p>
+
+<h4>
+<a id="model-option" class="anchor" href="#model-option" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>model</code> option</h4>
+
+<p>The state attribute for creating a sortable list.</p>
+
+<p>See more options at <a href="https://github.com/RubaXa/Sortable#options">https://github.com/RubaXa/Sortable#options</a></p>
+
+<div class="highlight highlight-source-js"><pre>{
+    ref<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>list<span class="pl-pds">'</span></span>,
+    model<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>items<span class="pl-pds">'</span></span>,
+    onStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleStart<span class="pl-pds">'</span></span>,
+    onEnd<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleEnd<span class="pl-pds">'</span></span>,
+    onAdd<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleAdd<span class="pl-pds">'</span></span>,
+    onUpdate<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleUpdate<span class="pl-pds">'</span></span>,
+    onRemove<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleRemove<span class="pl-pds">'</span></span>,
+    onSort<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleSort<span class="pl-pds">'</span></span>,
+    onFilter<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleFilter<span class="pl-pds">'</span></span>,
+    onMove<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>handleMove<span class="pl-pds">'</span></span>,
+    <span class="pl-c">// Sortable options</span>
+    group<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>,  <span class="pl-c">// or { name: "...", pull: [true, false, clone], put: [true, false, array] }</span>
+    sort<span class="pl-k">:</span> <span class="pl-c1">true</span>,  <span class="pl-c">// sorting inside list</span>
+    delay<span class="pl-k">:</span> <span class="pl-c1">0</span>, <span class="pl-c">// time in milliseconds to define when the sorting should start</span>
+    disabled<span class="pl-k">:</span> <span class="pl-c1">false</span>, <span class="pl-c">// Disables the sortable if set to true.</span>
+    store<span class="pl-k">:</span> <span class="pl-c1">null</span>,  <span class="pl-c">// @see Store</span>
+    animation<span class="pl-k">:</span> <span class="pl-c1">150</span>,  <span class="pl-c">// ms, animation speed moving items when sorting, `0` — without animation</span>
+    handle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.my-handle<span class="pl-pds">"</span></span>,  <span class="pl-c">// Drag handle selector within list items</span>
+    filter<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.ignore-elements<span class="pl-pds">"</span></span>,  <span class="pl-c">// Selectors that do not lead to dragging (String or Function)</span>
+    draggable<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>.item<span class="pl-pds">"</span></span>,  <span class="pl-c">// Specifies which items inside the element should be sortable</span>
+    ghostClass<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>sortable-ghost<span class="pl-pds">"</span></span>,  <span class="pl-c">// Class name for the drop placeholder</span>
+    chosenClass<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>sortable-chosen<span class="pl-pds">"</span></span>,  <span class="pl-c">// Class name for the chosen item</span>
+    dataIdAttr<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>data-id<span class="pl-pds">'</span></span>,
+    forceFallback<span class="pl-k">:</span> <span class="pl-c1">false</span>,  <span class="pl-c">// ignore the HTML5 DnD behaviour and force the fallback to kick in</span>
+    fallbackClass<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>sortable-fallback<span class="pl-pds">"</span></span>  <span class="pl-c">// Class name for the cloned DOM Element when using forceFallback</span>
+    fallbackOnBody<span class="pl-k">:</span> <span class="pl-c1">false</span>  <span class="pl-c">// Appends the cloned DOM Element into the Document's Body</span>
+    scroll<span class="pl-k">:</span> <span class="pl-c1">true</span>, <span class="pl-c">// or HTMLElement</span>
+    scrollSensitivity<span class="pl-k">:</span> <span class="pl-c1">30</span>, <span class="pl-c">// px, how near the mouse must be to an edge to start scrolling.</span>
+    scrollSpeed<span class="pl-k">:</span> <span class="pl-c1">10</span>, <span class="pl-c">// px</span>
+    <span class="pl-en">setData</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">dataTransfer</span>, <span class="pl-smi">dragEl</span>) {
+        <span class="pl-smi">dataTransfer</span>.<span class="pl-en">setData</span>(<span class="pl-s"><span class="pl-pds">'</span>Text<span class="pl-pds">'</span></span>, <span class="pl-smi">dragEl</span>.<span class="pl-smi">textContent</span>);
+    }
+}</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">SortableMixin</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-sortablejs<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">const</span> <span class="pl-c1">sortableOptions</span> <span class="pl-k">=</span> {
+    ref<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>list<span class="pl-pds">'</span></span>,
+    model<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>items<span class="pl-pds">'</span></span>
+};
+
+<span class="pl-k">class</span> <span class="pl-en">MySortableComponent</span> <span class="pl-k">extends</span> <span class="pl-en">React</span>.<span class="pl-smi">Component</span> {
+    state <span class="pl-k">=</span> {
+        items<span class="pl-k">:</span> [<span class="pl-c1">0</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>, <span class="pl-c1">6</span>, <span class="pl-c1">7</span>, <span class="pl-c1">8</span>, <span class="pl-c1">9</span>]
+    };
+
+    <span class="pl-en">handleStart</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Dragging started</span>
+    }
+    <span class="pl-en">handleEnd</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Dragging ended</span>
+    }
+    <span class="pl-en">handleAdd</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Element is dropped into the list from another list</span>
+    }
+    <span class="pl-en">handleUpdate</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Changed sorting within list</span>
+    }
+    <span class="pl-en">handleRemove</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Element is removed from the list into another list</span>
+    }
+    <span class="pl-en">handleSort</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Called by any change to the list (add / update / remove)</span>
+    }
+    <span class="pl-en">handleFilter</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Attempt to drag a filtered element</span>
+    }
+    <span class="pl-en">handleMove</span>(<span class="pl-smi">evt</span>) { <span class="pl-c">// Event when you move an item in the list or between lists</span>
+    }
+    <span class="pl-en">render</span>() {
+        <span class="pl-k">const</span> <span class="pl-c1">items</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">items</span>.<span class="pl-en">map</span>((<span class="pl-smi">text</span>, <span class="pl-smi">index</span>) <span class="pl-k">=&gt;</span> (
+            <span class="pl-k">&lt;</span>li key<span class="pl-k">=</span>{index}<span class="pl-k">&gt;</span>{text}<span class="pl-k">&lt;</span><span class="pl-k">/</span>li<span class="pl-k">&gt;</span>
+        ));
+
+        <span class="pl-k">return</span> (
+            <span class="pl-k">&lt;</span>div<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>ul ref<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>list<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>{items}<span class="pl-k">&lt;</span><span class="pl-k">/</span>ul<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
+        );
+    }
+}
+
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-smi">SortableMixin</span>(MySortableComponent, sortableOptions);</pre></div>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>Using the <code>group</code> option to drag elements from one list into another.</p>
+
+<p>File: index.jsx</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">ReactDOM</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">Sortable1</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./sortable1<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">Sortable2</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./sortable2<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">const</span> <span class="pl-c1">SortableList</span> <span class="pl-k">=</span> (<span class="pl-smi">props</span>) <span class="pl-k">=&gt;</span> {
+    <span class="pl-k">return</span> (
+        <span class="pl-k">&lt;</span>div<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>Sortable1 <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>hr <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span>Sortable2 <span class="pl-k">/</span><span class="pl-k">&gt;</span>
+        <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
+    );
+};
+
+<span class="pl-smi">ReactDOM</span>.<span class="pl-en">render</span>(<span class="pl-k">&lt;</span>SortableList <span class="pl-k">/</span><span class="pl-k">&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">body</span>);</pre></div>
+
+<p>File: sortable1.jsx</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">SortableMixin</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-sortablejs<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">class</span> <span class="pl-en">Sortable1</span> <span class="pl-k">extends</span> <span class="pl-en">React</span>.<span class="pl-smi">Component</span> {
+    state <span class="pl-k">=</span> {
+        items<span class="pl-k">:</span> [<span class="pl-c1">0</span>, <span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>]
+    };
+
+    <span class="pl-en">render</span>() {
+        <span class="pl-k">let</span> items <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">items</span>.<span class="pl-en">map</span>((<span class="pl-smi">text</span>, <span class="pl-smi">index</span>) <span class="pl-k">=&gt;</span> {
+            <span class="pl-k">return</span> <span class="pl-k">&lt;</span>li key<span class="pl-k">=</span>{index}<span class="pl-k">&gt;</span>{text}<span class="pl-k">&lt;</span><span class="pl-k">/</span>li<span class="pl-k">&gt;</span>;
+        });
+
+        <span class="pl-k">return</span> (
+            <span class="pl-k">&lt;</span>div<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>ul ref<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>list<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>{items}<span class="pl-k">&lt;</span><span class="pl-k">/</span>ul<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
+        );
+    }
+}
+
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-smi">SortableMixin</span>(Sortable1, { group<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>shared<span class="pl-pds">'</span></span> });</pre></div>
+
+<p>File: sortable2.jsx</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">SortableMixin</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-sortablejs<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">class</span> <span class="pl-en">Sortable2</span> <span class="pl-k">extends</span> <span class="pl-en">React</span>.<span class="pl-smi">Component</span> {
+    state <span class="pl-k">=</span> {
+        items<span class="pl-k">:</span> [<span class="pl-c1">5</span>, <span class="pl-c1">6</span>, <span class="pl-c1">7</span>, <span class="pl-c1">8</span>, <span class="pl-c1">9</span>]
+    };
+
+    <span class="pl-en">render</span>() {
+        <span class="pl-k">let</span> items <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">state</span>.<span class="pl-smi">items</span>.<span class="pl-en">map</span>((<span class="pl-smi">text</span>, <span class="pl-smi">index</span>) <span class="pl-k">=&gt;</span> {
+            <span class="pl-k">return</span> <span class="pl-k">&lt;</span>li key<span class="pl-k">=</span>{index}<span class="pl-k">&gt;</span>{text}<span class="pl-k">&lt;</span><span class="pl-k">/</span>li<span class="pl-k">&gt;</span>;
+        });
+
+        <span class="pl-k">return</span> (
+            <span class="pl-k">&lt;</span>div<span class="pl-k">&gt;</span>
+                <span class="pl-k">&lt;</span>ul ref<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>list<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>{items}<span class="pl-k">&lt;</span><span class="pl-k">/</span>ul<span class="pl-k">&gt;</span>
+            <span class="pl-k">&lt;</span><span class="pl-k">/</span>div<span class="pl-k">&gt;</span>
+        );
+    }
+}
+
+<span class="pl-k">export</span> <span class="pl-v">default</span> <span class="pl-smi">SortableMixin</span>(Sortable2, { group<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>shared<span class="pl-pds">'</span></span> });</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/cheton/react-sortable">React-sortable</a> is maintained by <a href="https://github.com/cheton">cheton</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
