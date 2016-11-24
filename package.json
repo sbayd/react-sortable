@@ -1,7 +1,7 @@
 {
-  "name": "react-sortablejs",
+  "name": "sb-react-sortablejs",
   "version": "1.1.2",
-  "description": "A React component built on top of Sortable (https://github.com/RubaXa/Sortable).",
+  "description": "A custom react-sortablejs library original library is https://github.com/cheton/react-sortable",
   "main": "lib/index.js",
   "scripts": {
     "prepublish": "npm run lint && npm test && npm run build && npm run dist && npm run build-examples && npm run release",
@@ -21,26 +21,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cheton/react-sortable.git"
+    "url": "git+https://github.com/sbayd/react-sortable.git"
   },
-  "author": "Cheton Wu <cheton@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cheton/react-sortable/issues"
-  },
-  "homepage": "https://github.com/cheton/react-sortable",
-  "keywords": [
-    "react",
-    "react-component",
-    "sortable",
-    "reorder",
-    "drag",
-    "mixin"
-  ],
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
     "react-dom": "^0.14.0 || ^15.0.0",
-    "sortablejs": "1.x"
+    "sb-sortablejs": "1.x"
   },
   "dependencies": {},
   "devDependencies": {
