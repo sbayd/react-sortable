@@ -1,3 +1,5 @@
+# This fork is no longer maintained please use the original repository, https://github.com/cheton/react-sortable
+
 # react-sortable [![build status](https://travis-ci.org/cheton/react-sortable.svg?branch=master)](https://travis-ci.org/cheton/react-sortable) [![Coverage Status](https://coveralls.io/repos/github/cheton/react-sortable/badge.svg?branch=master)](https://coveralls.io/github/cheton/react-sortable?branch=master)
 
 [![NPM](https://nodei.co/npm/react-sortablejs.png?downloads=true&stars=true)](https://www.npmjs.com/package/react-sortablejs)
